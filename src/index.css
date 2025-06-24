@@ -1,0 +1,27 @@
+/* === index.css === */
+:root {
+  --color-primary: #4f46e5;
+  --color-secondary: #6366f1;
+  --font-base: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --radius: 8px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-base);
+  background-color: #f4f4f5;
+  color: #1f2937;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+a:hover {
+  color: var(--color-secondary);
+}
+
+* {
+  box-sizing: border-box;
+}

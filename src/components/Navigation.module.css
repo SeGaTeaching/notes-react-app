@@ -1,0 +1,50 @@
+/* === Navigation.module.css === */
+
+.navbar {
+  background-color: #1f2937; /* dunkles Grau */
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+.navItem a {
+  color: #e0e7ff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.navItem a:hover {
+  color: #a5b4fc;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    background-color: transparent;
+  }
+  .navList {
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+
+  .navList li {
+    width: 100%;
+  }
+
+  .navItem a {
+    background-color: #1f2937; /* dunkles Grau */
+    display: block;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+}
