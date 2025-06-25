@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import styles from "./NotesList.module.css";
 import { Link } from "react-router-dom";
 
-const API_URL = "http://127.0.0.1:8000/api/notes/";
-
 function NotesList() {
   const [notes, setNotes] = useState([]);
   const [form, setForm] = useState({ title: "", content: "" });
@@ -14,7 +12,7 @@ function NotesList() {
 
   const fetchNotes = async () => {
     try {
-      const res = await fetch(API_URL);
+      const res = await fetch(import.meta.env.VITE_API_URL + '/api/notes/');
       const data = await res.json();
       data.reverse();
       setNotes(data);
@@ -26,7 +24,7 @@ function NotesList() {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const res = await fetch(API_URL, {
+      const res = await fetch(import.meta.env.VITE_API_URL + '/api/notes/', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

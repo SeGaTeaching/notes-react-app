@@ -2,15 +2,13 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styles from "./NotesList.module.css";
 
-const API_URL = "http://127.0.0.1:8000/api/notes/";
-
 function NoteDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
   const [form, setForm] = useState({ title: "", content: "" });
 
   useEffect(() => {
-    fetch(`${API_URL}${id}/`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/notes/${id}/`)
       .then((res) => res.json())
       .then((data) => setForm({ title: data.title, content: data.content }))
       .catch((err) => console.error("Fehler beim Laden", err));
@@ -24,7 +22,7 @@ function NoteDetail() {
     e.preventDefault();
 
     try {
-      const res = await fetch(`${API_URL}${id}/`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/notes/${id}/`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -45,7 +43,7 @@ function NoteDetail() {
 
   const deleteNote = async () => {
     try {
-      const res = await fetch(`${API_URL}${id}/`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/notes/${id}/`, {
         method: "DELETE"
       });
 
